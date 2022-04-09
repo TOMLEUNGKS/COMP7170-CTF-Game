@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <title>CFT - Broken Access Controls</title>
+    <link rel="stylesheet" href="https://unpkg.com/buefy/dist/buefy.min.css" />
+    <link rel="stylesheet" href="ctf.css" />
+  </head>
+
+  <body>
+    <div>
+      <link rel="import" href="game-code.html" />
+    </div>
+    <div class="container">
+      <figure class="image">
+        <img src="src/HKBU.png" style="max-width: 8%; padding-top: 30px" />
+      </figure>
+      <br />
+      <h1 class="title">CTF Game - Broken Access Controls</h1>
+      <br />
+      <p>
+        <b>Broken access controls</b> can cause <b>authorization bypass</b>.
+        Below is a simple HTML form for
+        <b>transferring Bitcoin between accounts</b> and the corresponding code.
+      </p>
+      <br />
+      <p>
+        Can you spot the <b>vulnerability</b> in the code where the control
+        preventing <b>unauthorized transfers</b> could bypassed?
+      </p>
+    </div>
+    <br />
+    <br />
+    <div class="container">
+      <div class="columns">
+        <form class="column is-one-third">
+          From:
+          <br />
+          <select name="From">
+            <option value="Wallet">Bitcoin Wallet</option>
+          </select>
+          <br /><br />
+          To:
+          <br />
+          <select name="To">
+            <option value="Savings">Savings Account</option>
+            <option value="External">External Wallet</option>
+          </select>
+          <br /><br />
+          Amount:
+          <br />
+          BTC <input type="text" name="amount" />
+          <input type="hidden" id="isAuthorized" value="false" />
+          <input type="submit" />
+          <br />
+        </form>
+
+        <div class="ctf-code-left">
+          <span class="ctf-code-block-0">
+            &nbsp;1&nbsp;&nbsp;&lt;!-- HTML FORM --&gt;
+          </span>
+          <span class="ctf-code-block-1">&nbsp;2&nbsp;&nbsp;&lt;form&gt;</span
+          ><span class="ctf-code-block-0">&nbsp;3&nbsp;&nbsp;From: </span
+          ><span class="ctf-code-block-1"
+            >&nbsp;4&nbsp;&nbsp;&lt;select name="From"&gt;</span
+          ><span class="ctf-code-block-0"
+            >&nbsp;5&nbsp;&nbsp;&lt;option value="Checking"&gt;Bitcoin
+            Wallet&lt;/option&gt;</span
+          ><span class="ctf-code-block-1"
+            >&nbsp;6&nbsp;&nbsp;&lt;/select&gt;</span
+          ><span class="ctf-code-block-0">&nbsp;7&nbsp;&nbsp;To: </span
+          ><span class="ctf-code-block-1"
+            >&nbsp;8&nbsp;&nbsp;&lt;select name="To"&gt;</span
+          ><span class="ctf-code-block-0"
+            >&nbsp;9&nbsp;&nbsp;&lt;option value="Savings"&gt;Savings
+            Account&lt;/option&gt;</span
+          ><span class="ctf-code-block-1"
+            >10&nbsp;&nbsp;&lt;option value="External"&gt;External
+            Wallet&lt;/option&gt;</span
+          ><span class="ctf-code-block-0">11&nbsp;&nbsp;&lt;/select&gt;</span
+          ><span class="ctf-code-block-1"
+            >12&nbsp;&nbsp;Amount: BTC &lt;input type="text"
+            name="amount"&gt;</span
+          ><span class="ctf-code-block-0"
+            >13&nbsp;&nbsp;&lt;input type="hidden" id="isAuthorized"
+            value="false"&gt;</span
+          ><span class="ctf-code-block-1"
+            >14&nbsp;&nbsp;&lt;input type="submit"&gt;</span
+          ><span class="ctf-code-block-0">15&nbsp;&nbsp;&lt;/form&gt;</span>
+        </div>
+      </div>
+    </div>
+    <br />
+    <br />
+    <div class="container">
+      <div class="columns">
+        <p>
+          Which <b>line of code</b> contains an
+          <b>authorization bypass vulnerability</b> that could bring about
+          <b>broken access control</b>?
+        </p>
+      </div>
+    </div>
+    <br />
+    <br />
+    <div class="container">
+      <form id="ctf2-flag">
+        <div class="ctf-submit">
+          <select name="Submit" class="drop-down">
+            <option value="4">Line 4</option>
+            <option value="5">Line 5</option>
+            <option value="8">Line 8</option>
+            <option value="9">Line 9</option>
+            <option value="10">Line 10</option>
+            <option value="12">Line 12</option>
+            <option value="13">Line 13</option>
+            <option value="14">Line 14</option>
+          </select>
+
+          <input
+            class="input"
+            type="submit"
+            id="ctf2_flag_submit"
+            name="ctf2_flag_submit"
+            data-micromodal-trigger="modal"
+            class="ctf-button-red"
+            value="Try"
+          />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
